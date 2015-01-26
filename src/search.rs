@@ -28,7 +28,7 @@ pub fn enumerate_all(g: graph::Graph) -> usize{
         }
     }
     permute(&mut perm, &mut best_tour, &mut best_distance, &g, g.len());
-    print!("Best tour is:");
+    print!("Best tour is: ");
     g.print_tour(&best_tour);
     println!("");
     best_distance
