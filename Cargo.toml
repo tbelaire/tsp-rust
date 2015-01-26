@@ -3,3 +3,7 @@
 name = "tsp"
 version = "0.0.1"
 authors = ["Theo Belaire <theo.belaire@gmail.com>"]
+
+[dependencies.argparse]
+git = "https://github.com/tailhook/rust-argparse.git"
+
