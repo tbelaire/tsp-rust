@@ -9,9 +9,7 @@ use argparse::{ArgumentParser, StoreTrue, Store};
 
 
 pub mod graph {
-    pub struct Graph {
-        nodes: Vec<(char, i32, i32)>
-    }
+    pub type Graph = Vec<(char, i32, i32)>;
 }
 
 pub mod search {
@@ -48,12 +46,17 @@ fn main() {
 
     let mut ls = file.lines();
     let n_str = ls.next();
-    for line in ls {
+    let graph_lst:graph::Graph = ls.map(|line| {
         let l2 = line.unwrap();
         let words:Vec<&str> = l2.trim().split_str(" ").collect();
         let c:char = words[0].chars().next().unwrap();
         let x:i32 = words[1].parse().unwrap();
         let y:i32 = words[2].parse().unwrap();
-        println!("{} {} {}", c, x, y);
+        (c,x,y)
+    }).collect();
+    if verbose {
+        for &(c, x, y) in graph_lst.iter() {
+            println!("{} {} {}", c, x, y);
+        }
     }
 }
